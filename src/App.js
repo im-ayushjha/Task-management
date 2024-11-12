@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
-function App() {
+import React, { useState } from "react";
+import TaskDashboard from "./component/TaskDashboard";
+import TaskForm from "./component/TaskForm";
+
+const App = () => {
+  // State to hold the list of tasks
+  const [tasks, setTasks] = useState([
+    // Sample tasks (you can add more tasks or later load them dynamically)
+    {
+      id: 1,
+      title: "Task 1",
+      description: "This is task 1 description",
+      dueDate: "2024-11-15",
+      priority: "High",
+      status: "upcoming",
+    },
+    {
+      id: 2,
+      title: "Task 2",
+      description: "This is task 2 description",
+      dueDate: "2024-11-12",
+      priority: "Medium",
+      status: "overdue",
+    },
+  ]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Task Management</h1>
+      {/* Pass tasks to TaskDashboard component */}
+      <TaskDashboard tasks={tasks} />
     </div>
   );
-}
+};
 
 export default App;
