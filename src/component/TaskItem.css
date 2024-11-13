@@ -1,0 +1,70 @@
+/* TaskItem.css */
+.task-item {
+  background-color: #fff;
+  padding: 15px;
+  margin: 1rem 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  transition: transform 0.3s;
+}
+
+.task-item h3 {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.task-item p {
+  font-size: 1em;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.task-item .due-date {
+  font-size: 0.9em;
+  color: #888;
+  margin-bottom: 5px;
+}
+
+.task-item .priority {
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+/* TaskItem.css */
+.task-item .priority-high {
+  color: #ff0000;
+}
+
+.task-item .priority-medium {
+  color: #ff9800;
+}
+
+.task-item .priority-low {
+  color: #008000;
+}
+
+.task-item .button-container {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.task-item button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.task-item .edit-btn {
+  background-color: #4caf50; /* green background */
+  color: white;
+}
+
+.task-item .delete-btn {
+  background-color: #f44336; /* red background */
+  color: white;
+}
