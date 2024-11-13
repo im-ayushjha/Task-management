@@ -18,15 +18,18 @@ const TaskItem = ({ task, onEdit, onDelete, onToggleComplete }) => {
       >
         Priority: {task.priority}
       </p>
-      <label>
-        <input
-          type="checkbox"
-          checked={task.completed}
-          onChange={() => onToggleComplete(task.id)} // Toggle complete status
-        />
-        Completed
-      </label>
       <div className="button-container">
+        {!task.completed && (
+          <label className="completed-label">
+            <input
+              type="checkbox"
+              checked={task.completed}
+              onChange={() => onToggleComplete(task.id)} // Toggle complete status
+            />
+            <span className="checkmark"></span>
+            Completed
+          </label>
+        )}
         <button className="edit-btn" onClick={() => onEdit(task)}>
           Edit
         </button>

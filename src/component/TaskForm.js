@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 
 const TaskForm = ({ onSave, taskToEdit, onCancel }) => {
-  // Define state for each input field
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [dueDate, setDueDate] = useState("");
   const [priority, setPriority] = useState("Medium");
 
-  // Populate form fields if editing an existing task
   useEffect(() => {
     if (taskToEdit) {
       setTitle(taskToEdit.title);
@@ -17,7 +15,6 @@ const TaskForm = ({ onSave, taskToEdit, onCancel }) => {
     }
   }, [taskToEdit]);
 
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     const taskData = {
@@ -30,7 +27,6 @@ const TaskForm = ({ onSave, taskToEdit, onCancel }) => {
     resetForm();
   };
 
-  // Reset form fields
   const resetForm = () => {
     setTitle("");
     setDescription("");

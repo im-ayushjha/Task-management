@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TaskDashboard from "./component/TaskDashboard";
 import TaskForm from "./component/TaskForm";
 import "./App.css";
@@ -8,7 +8,13 @@ const App = () => {
   const [showForm, setShowForm] = useState(false);
   const [taskToEdit, setTaskToEdit] = useState(null);
 
-  // Toggle form visibility
+  useEffect(() => {
+    const storedTasks = localStorage.getItem("tasks");
+    if (storedTasks) {
+      setTasks(JSON.parse(storedTasks));
+    }
+  }, []);
+
   const toggleForm = () => {
     setShowForm(!showForm);
     setTaskToEdit(null);
@@ -27,32 +33,32 @@ const App = () => {
     } else {
       status = "upcoming";
     }
+    let updatedTasks;
     if (taskToEdit) {
-      setTasks(
-        tasks.map((task) =>
-          task.id === taskToEdit.id ? { ...task, ...taskData, status } : task
-        )
+      updatedTasks = tasks.map((task) =>
+        task.id === taskToEdit.id ? { ...task, ...taskData, status } : task
       );
     } else {
-      // Add new task
       const newTask = { ...taskData, id: tasks.length + 1, status };
-      setTasks([...tasks, newTask]);
+      updatedTasks = [...tasks, newTask];
     }
+
+    setTasks(updatedTasks);
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
     toggleForm();
   };
 
   const handleToggleComplete = (taskId) => {
-    setTasks(
-      tasks.map((task) =>
-        task.id === taskId
-          ? {
-              ...task,
-              completed: !task.completed,
-              status: !task.completed ? "completed" : "upcoming",
-            }
-          : task
-      )
-    );
+    const updatedTasks = tasks.map((task) => {
+      if (task.id === taskId && task.status !== "completed") {
+        const newStatus = task.completed ? "upcoming" : "completed";
+        return { ...task, completed: !task.completed, status: newStatus };
+      }
+      return task;
+    });
+
+    setTasks(updatedTasks);
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks)); // Save the updated tasks
   };
 
   // Edit task handler
@@ -63,7 +69,9 @@ const App = () => {
 
   // Delete task handler
   const handleDeleteTask = (taskId) => {
-    setTasks(tasks.filter((task) => task.id !== taskId));
+    const updatedTasks = tasks.filter((task) => task.id !== taskId);
+    setTasks(updatedTasks);
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
   };
 
   return (
