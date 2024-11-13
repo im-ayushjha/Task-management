@@ -26,8 +26,8 @@ const TaskForm = ({ onSave, taskToEdit, onCancel }) => {
       dueDate,
       priority,
     };
-    onSave(taskData); // Pass task data to parent component
-    resetForm(); // Clear the form after saving
+    onSave(taskData);
+    resetForm();
   };
 
   // Reset form fields

@@ -1,15 +1,12 @@
 import React from "react";
 import "./TaskItem.css"; // Importing the CSS file
 
-const TaskItem = ({ task, onEdit, onDelete }) => {
+const TaskItem = ({ task, onEdit, onDelete, onToggleComplete }) => {
   return (
     <div className="task-item">
       <h3>{task.title}</h3>
-
       <p>{task.description}</p>
-
       <p className="due-date">Due: {task.dueDate}</p>
-
       <p
         className={`priority ${
           task.priority === "High"
@@ -21,12 +18,18 @@ const TaskItem = ({ task, onEdit, onDelete }) => {
       >
         Priority: {task.priority}
       </p>
-
+      <label>
+        <input
+          type="checkbox"
+          checked={task.completed}
+          onChange={() => onToggleComplete(task.id)} // Toggle complete status
+        />
+        Completed
+      </label>
       <div className="button-container">
         <button className="edit-btn" onClick={() => onEdit(task)}>
           Edit
         </button>
-
         <button className="delete-btn" onClick={() => onDelete(task.id)}>
           Delete
         </button>

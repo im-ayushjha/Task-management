@@ -1,7 +1,12 @@
 import React from "react";
 import TaskList from "./TaskList";
 
-const TaskDashboard = ({ tasks, onEditTask, onDeleteTask }) => {
+const TaskDashboard = ({
+  tasks,
+  onEditTask,
+  onDeleteTask,
+  onToggleComplete,
+}) => {
   const upcomingTasks = tasks.filter((task) => task.status === "upcoming");
   const overdueTasks = tasks.filter((task) => task.status === "overdue");
   const completedTasks = tasks.filter((task) => task.status === "completed");
@@ -14,6 +19,7 @@ const TaskDashboard = ({ tasks, onEditTask, onDeleteTask }) => {
           tasks={upcomingTasks}
           onEditTask={onEditTask}
           onDeleteTask={onDeleteTask}
+          onToggleComplete={onToggleComplete}
         />
       </div>
       <div className="task-section">
@@ -22,6 +28,7 @@ const TaskDashboard = ({ tasks, onEditTask, onDeleteTask }) => {
           tasks={overdueTasks}
           onEditTask={onEditTask}
           onDeleteTask={onDeleteTask}
+          onToggleComplete={onToggleComplete}
         />
       </div>
       <div className="task-section">
@@ -30,6 +37,7 @@ const TaskDashboard = ({ tasks, onEditTask, onDeleteTask }) => {
           tasks={completedTasks}
           onEditTask={onEditTask}
           onDeleteTask={onDeleteTask}
+          onToggleComplete={onToggleComplete}
         />
       </div>
     </div>
