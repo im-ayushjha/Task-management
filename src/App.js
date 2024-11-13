@@ -20,7 +20,6 @@ const App = () => {
     setTaskToEdit(null);
   };
 
-  // Add or update a task
   const handleSaveTask = (taskData) => {
     const today = new Date();
     const dueDate = new Date(taskData.dueDate);
@@ -58,16 +57,14 @@ const App = () => {
     });
 
     setTasks(updatedTasks);
-    localStorage.setItem("tasks", JSON.stringify(updatedTasks)); // Save the updated tasks
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
   };
 
-  // Edit task handler
   const handleEditTask = (task) => {
     setTaskToEdit(task);
     setShowForm(true);
   };
 
-  // Delete task handler
   const handleDeleteTask = (taskId) => {
     const updatedTasks = tasks.filter((task) => task.id !== taskId);
     setTasks(updatedTasks);
@@ -76,10 +73,12 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Welcome to Task Management</h1>
-      <button onClick={toggleForm}>
-        {showForm ? "Close Form" : "Add New Task"}
-      </button>
+      <header className="app-header">
+        <h1>Task Management</h1>
+        <button className="toggle-form-btn" onClick={toggleForm}>
+          {showForm ? "Close Form" : "Add New Task"}
+        </button>
+      </header>
       {showForm && (
         <TaskForm
           onSave={handleSaveTask}

@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+import "./TaskForm.css";
 
 const TaskForm = ({ onSave, taskToEdit, onCancel }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [dueDate, setDueDate] = useState("");
   const [priority, setPriority] = useState("Medium");
+  const [isCompleted, setIsCompleted] = useState(false);
 
   useEffect(() => {
     if (taskToEdit) {
@@ -12,11 +14,16 @@ const TaskForm = ({ onSave, taskToEdit, onCancel }) => {
       setDescription(taskToEdit.description);
       setDueDate(taskToEdit.dueDate);
       setPriority(taskToEdit.priority);
+      setIsCompleted(taskToEdit.status === "completed");
     }
   }, [taskToEdit]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (isCompleted) {
+      alert("You cannot edit a completed task.");
+      return;
+    }
     const taskData = {
       title,
       description,
