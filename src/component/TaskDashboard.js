@@ -25,7 +25,6 @@ const TaskDashboard = ({
     return matchesPriority && matchesStatus;
   });
 
-  // Separate the filtered tasks into different categories based on status
   const upcomingTasks = filtered.filter((task) => task.status === "upcoming");
   const overdueTasks = filtered.filter((task) => task.status === "overdue");
   const completedTasks = filtered.filter((task) => task.status === "completed");
@@ -78,7 +77,7 @@ const TaskDashboard = ({
         <div className="task-section">
           <h2>Search Results</h2>
           <TaskList
-            tasks={filteredTasks} // Display all tasks filtered by search term
+            tasks={filteredTasks} 
             onEditTask={onEditTask}
             onDeleteTask={onDeleteTask}
             onToggleComplete={onToggleComplete}

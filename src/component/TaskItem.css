@@ -58,7 +58,7 @@
   border-radius: 5px;
   cursor: pointer;
   display: flex;
-  align-items: center; /* Align text and icon */
+  align-items: center;
 }
 
 .edit-btn {

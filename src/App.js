@@ -96,9 +96,9 @@ const App = () => {
         onToggleComplete={handleToggleComplete}
         searchTerm={searchTerm}
         onSearchChange={(e) => setSearchTerm(e.target.value)}
-        priorityFilter={priorityFilter} // Pass priority filter state
-        setPriorityFilter={setPriorityFilter} // Pass function to update priority filter
-        statusFilter={statusFilter} // Pass status filter state
+        priorityFilter={priorityFilter}
+        setPriorityFilter={setPriorityFilter}
+        statusFilter={statusFilter}
         setStatusFilter={setStatusFilter}
       />
     </div>

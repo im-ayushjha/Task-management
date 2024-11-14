@@ -38,7 +38,7 @@ const TaskItem = ({ task, onEdit, onDelete, onToggleComplete }) => {
         </button>
 
         <button className="delete-btn" onClick={() => onDelete(task.id)}>
-          <FaEdit className="delete-icon" />
+          <MdDelete className="delete-icon" />
           Delete
         </button>
       </div>
