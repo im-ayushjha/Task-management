@@ -1,4 +1,5 @@
 /* TaskItem.css */
+
 .task-item {
   background-color: #fff;
   padding: 15px;
@@ -33,7 +34,6 @@
   font-weight: bold;
 }
 
-/* TaskItem.css */
 .task-item .priority-high {
   color: #ff0000;
 }
@@ -50,6 +50,7 @@
   display: flex;
   justify-content: flex-start;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 .task-item button {
@@ -136,4 +137,19 @@
   border: solid white;
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .task-item .button-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .task-item button,
+  .task-item .completed-label {
+    width: 100%;
+    justify-content: center;
+  }
 }

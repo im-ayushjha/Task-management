@@ -102,4 +102,27 @@
   .task-section h2 {
     font-size: 1.5em;
   }
+
+  .search-bar {
+    flex-direction: column;
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .search-bar input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .search-bar select {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .search-icon {
+    left: 1px;
+    margin-top: 4%;
+    /* width: 100%; */
+    /* bottom: 1px; */
+  }
 }
