@@ -9,13 +9,13 @@ const TaskList = ({ tasks, onEditTask, onDeleteTask, onToggleComplete }) => {
         display: "flex",
         flexDirection: "column",
         gap: "5px",
-        padding: "5px",
+        paddingLeft: "5px",
         backgroundColor: "#f4f4f4",
         borderRadius: "4px",
       }}
     >
       {tasks.length === 0 ? (
-        <p style={{ color: "#888", fontSize: "18px" }}>No tasks available</p>
+        <p style={{ color: "#888", fontSize: "18px" }}>No tasks available!</p>
       ) : (
         tasks.map((task) => (
           <TaskItem

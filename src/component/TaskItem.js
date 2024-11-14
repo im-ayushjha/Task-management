@@ -1,5 +1,7 @@
 import React from "react";
-import "./TaskItem.css"; // Importing the CSS file
+import "./TaskItem.css";
+import { FaEdit } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
 
 const TaskItem = ({ task, onEdit, onDelete, onToggleComplete }) => {
   return (
@@ -27,13 +29,16 @@ const TaskItem = ({ task, onEdit, onDelete, onToggleComplete }) => {
               onChange={() => onToggleComplete(task.id)} // Toggle complete status
             />
             <span className="checkmark"></span>
-            Completed
+            Mark as Completed
           </label>
         )}
         <button className="edit-btn" onClick={() => onEdit(task)}>
+          <FaEdit className="edit-icon" />
           Edit
         </button>
+
         <button className="delete-btn" onClick={() => onDelete(task.id)}>
+          <FaEdit className="delete-icon" />
           Delete
         </button>
       </div>

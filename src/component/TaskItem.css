@@ -57,16 +57,36 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  display: flex;
+  align-items: center; /* Align text and icon */
 }
 
 .edit-btn {
   background-color: #4caf50;
   color: white;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.edit-icon {
+  font-size: 18px;
 }
 
 .task-item .delete-btn {
   background-color: #f44336;
   color: white;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete-icon {
+  font-size: 18px;
 }
 
 .task-item .completed-label {
